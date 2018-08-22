@@ -17,6 +17,10 @@ Create a full stack web development environtment that emphasizes the following f
 git pull https://github.com/ops2go/goswift
 
 ```
+### Test Build 
+```
+bats tests/test-env.bats
+```
 ### Build the container image
 
 ```
