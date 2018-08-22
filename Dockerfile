@@ -16,6 +16,8 @@ WORKDIR goswift
 
 ENV PATH=$PATH:/goswift
 
+EXPOSE 8080
+
 COPY --from=builder /go/src/github.com/ops2go/goswift/    .
 
 COPY templates/ .
