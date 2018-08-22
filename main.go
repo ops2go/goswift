@@ -17,12 +17,11 @@ func init() {
 
 func main() {
 	mux := httprouter.New()
-	mux.GET("/", index)
+	mux.GET("/", home)
 	mux.GET("/about", about)
 	mux.GET("/contact", contact)
-	mux.GET("/apply", apply)
-	mux.POST("/apply", applyProcess)
 	mux.GET("/user/:name", user)
+	mux.GET("/test", test)
 	mux.GET("/blog/:category/:article", blogRead)
 	mux.POST("/blog/:category/:article", blogWrite)
 	http.ListenAndServe(":8080", mux)
@@ -42,8 +41,8 @@ func blogWrite(w http.ResponseWriter, req *http.Request, ps httprouter.Params) {
 	fmt.Fprintf(w, "WRITE ARTICLE, %s!\n", ps.ByName("article"))
 }
 
-func index(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
-	err := tpl.ExecuteTemplate(w, "index.gohtml", nil)
+func home(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
+	err := tpl.ExecuteTemplate(w, "home.gohtml", nil)
 	HandleError(w, err)
 }
 
@@ -57,13 +56,13 @@ func contact(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
 	HandleError(w, err)
 }
 
-func apply(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
-	err := tpl.ExecuteTemplate(w, "apply.gohtml", nil)
+func blog(w http.ResponseWriter, req *http.Request, ps httprouter.Params) {
+	err := tpl.ExecuteTemplate(w, "blog.gohtml", nil)
 	HandleError(w, err)
 }
 
-func applyProcess(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
-	err := tpl.ExecuteTemplate(w, "applyProcess.gohtml", nil)
+func test(w http.ResponseWriter, req *http.Request, ps httprouter.Params) {
+	err := tpl.ExecuteTemplate(w, "test.gohtml", nil)
 	HandleError(w, err)
 }
 
