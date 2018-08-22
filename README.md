@@ -8,6 +8,7 @@ Create a full stack web development environtment that emphasizes the following f
 * Few Dependencies
 * Application Portability
 * HTML Templating
+* Easy Database Connection
 * Continuous Integration
 * Continuous Delivery
 
@@ -33,3 +34,4 @@ curl localhost:8080
 
 Image Size: 13.5 mb
 
+Snippets for VSCode available in go.json
