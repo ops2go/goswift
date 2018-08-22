@@ -6,3 +6,5 @@ Dockerfile
 images/
 clean.sh
 docs/
+tests/
+scrap/

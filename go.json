@@ -62,7 +62,11 @@
 		"body": "func $1(w http.ResponseWriter, req *http.Request, ps httprouter.Params) {\n\t$2\n}"
 	},
 	"Httprouter mux": {
-		"prefix": "httpfmux",
+		"prefix": "httpmux",
 		"body": "func main() {\n\tmux := httprouter.New()\n\tmux.GET(\"/\", index)\n\tmux.GET(\"/about\", about)\n\tmux.GET(\"/contact\", contact)\n\tmux.GET(\"/apply\", apply)\n\tmux.POST(\"/apply\", applyProcess)\n\tmux.GET(\"/user/:name\", user)\n\tmux.GET(\"/blog/category/:article\", blogRead)\n\tmux.POST(\"/blog/:category/:article\", blogWrite)\n\thttp.ListenAndServe(\":8080\", mux)\n}"
+	},
+	"Httprouter functions": {
+		"prefix": "httpfmux",
+		"body":	  "func $1(w http.ResponseWriter, req *http.Request, ps httprouter.Params) {\n\t$2\n}"
 	}
 }

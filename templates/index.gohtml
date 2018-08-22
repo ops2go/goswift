@@ -3,14 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>INDEX</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+    <link href="//play.golang.mx/static/example.css" rel="stylesheet" type="text/css" />
+    <link href="//play.golang.mx/static/codemirror.css" rel="stylesheet" type="text/css" />
+
+    <script src="//play.golang.mx/static/playground-full.js"></script>
+    <script src="//play.golang.mx/static/snippets.js"></script>
+
+    <script>
+    goPlaygroundOptions({
+      'shareRedirect': '//play.golang.mx/p/',
+      'shareURL': '//play.golang.mx/share',
+      'compileURL': '//play.golang.mx/compile',
+      'fmtURL': '//play.golang.mx/fmt',
+      'shareOpenNewWindow': true
+    });
+    </script>
 </head>
 <body>
-
 <strong>INDEX</strong><br>
 <a href="/">index</a><br>
 <a href="/about">about</a><br>
 <a href="/contact">contact</a><br>
 <a href="/apply">apply</a><br>
+    <textarea class="go-playground-snippet" data-title="Example (Hello Playground!)">
+package main
 
+import (
+&#09;"fmt"
+)
+
+func main() {
+&#09;fmt.Printf("Hello Playground!")
+}</textarea>
 </body>
 </html>
