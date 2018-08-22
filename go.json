@@ -1,0 +1,68 @@
+{
+	// Place your snippets for go here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"package main and main function": {
+		"prefix": "pkg",
+		"body": "package main\n\n",
+		"description": "Snippet for main package & function",
+	},
+	"print a line": {
+		"prefix": "fpl",
+		"body": "fmt.Println(${1:x})",
+	},
+	"string print": {
+		"prefix": "fs",
+		"body": "fmt.Sprint(${1:x})",
+	},
+	"variadic function": {
+		"prefix": "variadic",
+		"body": "func $1 ($2 ...$0) ",
+	},
+	"beggining of glob template file": {
+		"prefix": "templglob",
+		"body": "func init() {\n\ttpl = template.Must(template.ParseGlob(\"templates/*\"))\n}\n\n",
+	},
+	"template start": {
+		"prefix": "templ",
+		"body": "package main\n\nimport (\n\t\"os\"\n\t\"log\"\n\t\"text/template\"\n)\n\nvar tpl *template.Template\n\n",
+	},
+	"template pipeline": {
+		"prefix": "templpipe",
+		"body": "func init() {\n\ttpl = template.Must(template.New(\"\").Funcs(fm).ParseGlob(\"templates/*\"))\n}\n\n"
+	},
+	"Date function": {
+		"prefix": "fmonthdayyear",
+		"body": "func monthDayYear(t time.Time) string {\n\treturn t.Format(\"01-02-2006\")\n}"
+	},
+	"Template Function returning time": {
+		"prefix": "templftime",
+		"body": "func main() {\n\terr := tpl.ExecuteTemplate(os.Stdout, \"tpl.gohtml\", time.Now))\n}"
+	},
+	"Start http pkg": {
+		"prefix": "http"
+		"body": "package main\n\nimport (\n\t\"net/http\"\n\t\"io\"\n\t\"html/template\"\n\t\"log\"\n\t\"fmt\"\n\t\"github.com/julienschmidt/httprouter\"\n)\n\nvar tpl *template.Template\n\nfunc init() {\n\ttpl = template.Must(template.ParseGlob(\"templates/*\"\n}"
+	},
+	"Listen and Serve": {
+		"prefix": "httplistenserve",
+		"body": "http.ListenAndServe(\":8080\", $1)"
+	},
+	"Serve HTTP": {
+		"prefix": "httpfunc",
+		"body": "func $1(w http.ResponseWriter, req *http.Request, ps httprouter.Params) {\n\t$2\n}"
+	},
+	"Httprouter mux": {
+		"prefix": "httpfmux",
+		"body": "func main() {\n\tmux := httprouter.New()\n\tmux.GET(\"/\", index)\n\tmux.GET(\"/about\", about)\n\tmux.GET(\"/contact\", contact)\n\tmux.GET(\"/apply\", apply)\n\tmux.POST(\"/apply\", applyProcess)\n\tmux.GET(\"/user/:name\", user)\n\tmux.GET(\"/blog/category/:article\", blogRead)\n\tmux.POST(\"/blog/:category/:article\", blogWrite)\n\thttp.ListenAndServe(\":8080\", mux)\n}"
+	}
+}
