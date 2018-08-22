@@ -12,6 +12,9 @@ Create a full stack web development environtment that emphasizes the following f
 * Continuous Integration
 * Continuous Delivery
 
+### Download Docker
+[https://www.docker.com/get-started]
+
 ### Clone this repository
 ```
 git pull https://github.com/ops2go/goswift
@@ -33,6 +36,10 @@ docker run -d -p 8080:8080 goswift
 ### Check localhost
 ```
 curl localhost:8080
+```
+### Remove all containers and images
+```
+bash clean.sh
 ```
 
 
