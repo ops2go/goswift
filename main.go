@@ -22,6 +22,8 @@ func main() {
 	mux.GET("/contact", contact)
 	mux.GET("/user/:name", user)
 	mux.GET("/test", test)
+	mux.GET("/golang", golang)
+	mux.GET("/gopherjs", gopherjs)
 	mux.GET("/blog/:category/:article", blogRead)
 	mux.POST("/blog/:category/:article", blogWrite)
 	http.ListenAndServe(":8080", mux)
@@ -56,13 +58,18 @@ func contact(w http.ResponseWriter, req *http.Request, _ httprouter.Params) {
 	HandleError(w, err)
 }
 
-func blog(w http.ResponseWriter, req *http.Request, ps httprouter.Params) {
-	err := tpl.ExecuteTemplate(w, "blog.gohtml", nil)
+func test(w http.ResponseWriter, req *http.Request, ps httprouter.Params) {
+	err := tpl.ExecuteTemplate(w, "test.gohtml", nil)
 	HandleError(w, err)
 }
 
-func test(w http.ResponseWriter, req *http.Request, ps httprouter.Params) {
-	err := tpl.ExecuteTemplate(w, "test.gohtml", nil)
+func gopherjs(w http.ResponseWriter, req *http.Request, ps httprouter.Params) {
+	err := tpl.ExecuteTemplate(w, "gopherjs.gohtml", nil)
+	HandleError(w, err)
+}
+
+func golang(w http.ResponseWriter, req *http.Request, ps httprouter.Params) {
+	err := tpl.ExecuteTemplate(w, "golang", nil)
 	HandleError(w, err)
 }
 
